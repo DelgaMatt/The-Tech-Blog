@@ -7,7 +7,7 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection.js');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const helpers = require('./utils/helpers');
+const helpers = require('./utils/helpers.js');
 const { strict } = require('assert');
 
 //initialize express
