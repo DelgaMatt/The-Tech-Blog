@@ -36,6 +36,7 @@ app.use(session(sess));
 //telling handlebars to utilize the helpers
 const hbs = exphbs.create({ helpers }); 
 
+//handlebars is going to allow us to make dynamic html
 //basic handlebar initialization
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
