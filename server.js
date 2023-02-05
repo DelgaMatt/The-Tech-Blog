@@ -1,14 +1,15 @@
-const path = require('path');
 const express = require('express');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
-
 const routes = require('./controllers');
-const sequelize = require('./config/connection.js');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const sequelize = require('./config/connection');
+const path = require('path');
 
-const helpers = require('./utils/helpers.js');
-const { strict } = require('assert');
+const helpers = require('./utils/helpers');
+
+const exphbs = require('express-handlebars');
+//telling handlebars to utilize the helpers
+const hbs = exphbs.create({ helpers }); 
+
+const session = require('express-session');
 
 //initialize express
 const app = express();
@@ -16,13 +17,14 @@ const app = express();
 //set port
 const PORT = process.env.PORT || 3001;
 
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 const sess = {
     secret: 'Super secret secret',
     cookie: {
         maxAge: 60 * 60 * 1000,
         httpOnly: true,
         secure: false,
-        sameSite: strict
     },
     resave: false,
     saveUninitialized: true,
@@ -33,8 +35,7 @@ const sess = {
 
 app.use(session(sess));
 
-//telling handlebars to utilize the helpers
-const hbs = exphbs.create({ helpers }); 
+
 
 //handlebars is going to allow us to make dynamic html
 //basic handlebar initialization
@@ -49,9 +50,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //telling the server to follow pathway into ./controllers for routing
-// app.use(require('./controllers'));
+app.use(routes);
 
 //we are not going to be running "DROP DATABASE IF EXISTS" when we run our server
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'))
+    app.listen(PORT, () => console.log('Now listening'));
 });
