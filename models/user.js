@@ -1,7 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require('../config/connection.js');
+const bcrypt = require('bcrypt');
+const sequelize = require('../config/connection');
 
 class User extends Model {
+    //checking to make sure that the hashed user password matches the user entered password
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
@@ -36,9 +38,7 @@ User.init(
         }
     },
     {
-        // When adding hooks via the init() method, they go below
         hooks: {
-          // Use the beforeCreate hook to work with data before a new instance is created
           beforeCreate: async (newUserData) => {
             // In this case, we are taking the user's email address, and making all letters lower case before adding it to the database.
             newUserData.email = await newUserData.email.toLowerCase();
@@ -57,3 +57,5 @@ User.init(
         modelName: 'user',
       }
 );
+
+module.exports = User ;

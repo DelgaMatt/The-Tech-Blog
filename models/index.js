@@ -2,24 +2,28 @@ const User = require('./user');
 const Post = require('./post');
 const Comment = require('./comment');
 
-User.hasMany(Post, {
-    
-});
+// User.hasMany(Post, {
+//     //foreign key created in the post table -- sequelize
+//     foreignKey: 'user_id',
+// });
 
-User.hasMany(Comment, {
-
-})
+// User.hasMany(Comment, {
+//     foreignKey: 'user_id'
+// });
 
 Post.belongsTo(User, {
-
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
 Post.hasMany(Comment, {
-
-})
-
-Comment.belongsTo(User, {
-
+    foreignKey: 'post_id',
+    onDelete: 'CASCADE'
 });
 
-module.exports = { User, Post, Comment }
+Comment.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
+module.exports = { User, Post, Comment } ;

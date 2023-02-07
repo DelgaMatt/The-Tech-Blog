@@ -19,6 +19,7 @@ const PORT = process.env.PORT || 3001;
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+//sets up a connect to our Sequelize db
 const sess = {
     secret: 'Super secret secret',
     cookie: {
@@ -28,14 +29,13 @@ const sess = {
     },
     resave: false,
     saveUninitialized: true,
+    //sets up session store
     store: new SequelizeStore({
-        db: sequelize
+        db: sequelize,
     })
 };
 
 app.use(session(sess));
-
-
 
 //handlebars is going to allow us to make dynamic html
 //basic handlebar initialization
@@ -55,4 +55,6 @@ app.use(routes);
 //we are not going to be running "DROP DATABASE IF EXISTS" when we run our server
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
+}).catch((err) => {
+    console.log(err);
 });
