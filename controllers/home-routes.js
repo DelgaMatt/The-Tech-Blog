@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const sequelize = require('../config/connection');
+const { Model } = require('sequelize');
 
 //will contain all of the user facing routes (homepage, login)
 //get and render all posts
@@ -11,12 +12,11 @@ const sequelize = require('../config/connection');
 router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
-            include: [Comment, User]
+            include: [ User, Comment ]
         });
+
         //serialize the data
-        const posts = await Post.map((post) =>
-            post.get({ plain: true })
-        );
+        const posts = await postData.map((post) => post.get({ plain: true }));
 
         // res.render('homepage', {
         //     posts,
@@ -33,9 +33,7 @@ router.get('/', async (req, res) => {
 router.get('post/:id', async (req, res) => {
     try {
 
-        const postData = await Post.findByPk(req.params.id, {
-            include: [Comment, User]
-        });
+        const postData = await Post.findByPk(req.params.id);
 
         if (!postData) {
             res.status(404).json({ message: 'No post found with that id' });
@@ -60,3 +58,5 @@ router.get('/login', (req, res) => {
     }
     res.render('login');
 });
+
+module.exports = router ;
