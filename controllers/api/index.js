@@ -8,8 +8,8 @@ const commentRoutes = require('./comment-routes');
 //localhost:3001/api/posts
 //localhost:3001/api/comments
 
-// router.use('/users', userRoutes);
-// router.use('/posts', postRoutes);
-// router.use('/comments', commentRoutes);
+// router.use('/user', userRoutes);
+router.use('/post', postRoutes);
+// router.use('/comment', commentRoutes);
 
 module.exports = router ;

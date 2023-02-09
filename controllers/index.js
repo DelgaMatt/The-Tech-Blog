@@ -8,8 +8,8 @@ const dashRoutes = require('./dashboard-routes')
 //localhost:3001/
 //localhost:3001/dashboard
 
-// router.use('/api', apiRoutes);
+router.use('/api', apiRoutes);
 router.use('/', homeRoutes);
-// router.use('/dashboard', dashRoutes);
+router.use('/dashboard', dashRoutes);
 
 module.exports = router ;

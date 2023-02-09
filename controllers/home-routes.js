@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 });
 
 //get post by id
-router.get('post/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
     try {
 
         const postData = await Post.findByPk(req.params.id);
@@ -39,6 +39,12 @@ router.get('post/:id', async (req, res) => {
             res.status(404).json({ message: 'No post found with that id' });
             return;
         };
+
+        // res.render('homepage', {
+        //     posts,
+        //     loggedIn: req.session.loggedIn,
+        // }); 
+
         res.status(200).json(postData)
     } catch (err) {
         res.status(500).json(err);
