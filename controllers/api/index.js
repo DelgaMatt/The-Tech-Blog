@@ -8,7 +8,7 @@ const commentRoutes = require('./comment-routes');
 //localhost:3001/api/posts
 //localhost:3001/api/comments
 
-// router.use('/user', userRoutes);
+router.use('/user', userRoutes);
 router.use('/post', postRoutes);
 // router.use('/comment', commentRoutes);
 
