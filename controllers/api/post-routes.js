@@ -18,6 +18,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/', async (req, res) => {
+  try {
+      const postData = await Post.create({
+        title: req.body.title,
+        post_text: req.body.post_text
+      });
+      
+      res.status(200).json(postData)
+  } catch(err) {
+      res.status(500).json(err);
+  }
+});
+
 //get post by id
 router.get('/:id', async (req, res) => {
     try {
@@ -33,19 +46,6 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-});
-
-router.post('/:id', async (req, res) => {
-  try {
-      const postData = await Post.create({
-        title: req.body.title,
-        post_text: req.body.post_text
-      });
-      
-      res.status(200).json(postData)
-  } catch(err) {
-      res.status(500).json(err);
-  }
 });
 
 router.put('/:id', async (req, res) => {

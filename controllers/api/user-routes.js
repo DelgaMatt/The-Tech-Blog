@@ -5,7 +5,7 @@ const { Post, User, Comment } = require('../../models');
 router.get('/', async (req, res) => {
     try {
         const userData = await User.findAll({
-            // include: [ Post, Comment ]
+            include: [ Post, Comment ]
         });
 
         //serialize the data
@@ -17,6 +17,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/', async (req, res) => {
+    try {
+        const userData = await User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password
+        });
+
+        res.status(200).json(userData)
+    } catch(err) {
+        res.status(500).json(err);
+    }
+});
+
 // //get post by id
 router.get('/:id', async (req, res) => {
     try {
@@ -24,7 +38,7 @@ router.get('/:id', async (req, res) => {
         const userData = await User.findByPk(req.params.id);
 
         if (!userData) {
-            res.status(404).json({ message: 'No post found with that id' });
+            res.status(404).json({ message: 'No user found with that id' });
             return;
         };
 
@@ -34,28 +48,14 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/:id', async (req, res) => {
-    try {
-        const userData = await User.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password
-        });
-        
-        res.status(200).json(userData)
-    } catch(err) {
-        res.status(500).json(err);
-    }
-});
-
 router.put('/:id', async (req, res) => {
     try{
-      const postData = await Post.update(req.body, {
+      const userData = await User.update(req.body, {
         where: {id: req.params.id}
       });
   
-      if (!postData) {
-        res.status(404).json({message: "No post found with that id"});
+      if (!userData) {
+        res.status(404).json({message: "No user found with that id"});
         return;
       };
   
