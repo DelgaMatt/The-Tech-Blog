@@ -18,10 +18,10 @@ router.get('/', async (req, res) => {
         //serialize the data
         const posts = await postData.map((post) => post.get({ plain: true }));
 
-        // res.render('homepage', {
-        //     posts,
-        //     loggedIn: req.session.loggedIn,
-        // });
+        res.render('main', {
+            // posts,
+            // loggedIn: req.session.loggedIn,
+        });
 
         res.status(200).json(posts)
     } catch (err) {

@@ -1,7 +1,7 @@
 const User = require('./user');
 const Post = require('./post');
 const Comment = require('./comment');
-const { post } = require('../controllers');
+
 
 User.hasMany(Post, {
     //foreign key created in the post table -- sequelize
