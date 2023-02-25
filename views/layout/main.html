@@ -1,0 +1,142 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <link rel="stylesheet" href="../../public/styles/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>The Tech Blog</h1>
+        <nav>
+            <ul>
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+                <!-- {{#if loggedIn}} -->
+                <!-- <li><a id="logout" class="navLink">Logout</a></li> -->
+                <!-- {{else}} -->
+                <li><a href="#" class="navLink login-btn">Log in</a></li>
+                <!-- {{/if}} -->
+            </ul>
+        </nav>
+    </header>
+
+</body>
+<main>
+    <!-- {{{body}}} -->
+
+    <!-- HOMEPAGE -->
+    <div class="page">Homepage</div>
+    <section class="post-items">
+        <section class="card">
+            <div class="post-title">
+                <div>"A day in the life"</div>
+                <div class="post-tag">created by Matthew Delgado</div>
+            </div>
+            <div class="post-text">
+                just another day in the life writing code! I love what i do!
+            </div>
+
+
+        </section>
+
+        <!-- Add Comment Box -->
+        <div class="comment-box">
+            <div>Leave a comment.. </div>
+            <textarea type="text" id="comment-text"></textarea>
+            <button id="comment-submit-btn">Submit</button>
+        </div>
+
+        <!-- Posted Comments -->
+        <div class="comment-box">
+            <div>
+                <p>This is from a previous comment</p>
+            </div>
+            <div class="post-tag">Created by Matthew Delgado</div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <div class="page">Dashboard</div>
+    <section class="post-items">
+        <section class="card">
+            <div class="post-title">
+                <div>"A day in the life"</div>
+                <div class="post-tag">created by Matthew Delgado</div>
+            </div>
+            <div class="post-text">
+                just another day in the life writing code! I love what i do!
+            </div>
+
+
+        </section>
+        <section class="post-btns-cont">
+            <button class="post-btn" id="edit-post">Edit Post</button>
+            <button class="post-btn" id="delete-post">Delete Post</button>
+        </section>
+    </section>
+
+
+    <!-- EDIT POST -->
+    <div class="page">Post Editor</div>
+    <section class="post-items">
+        <section class="card">
+            <div class="post-title">
+                <input type="text" value="A day in the life"></input>
+            </div>
+            <div class="post-text">
+                <input type="text" value="another day in the life writing code! I love what i do!"></input>
+            </div>
+        </section>
+        <section class="post-btns-cont">
+            <button class="post-btn" id="save-post">Save Post</button>
+            <button class="post-btn" id="delete-post">Delete Post</button>
+        </section>
+    </section>
+
+    <!-- LOGIN -->
+    <div class="page">Log In</div>
+    <section class="form">
+        <div> Go to Sign up</div>
+        <section class="form-container">
+            <div class="form-item">
+                <label for="username-login">Username</label><br>
+                <input type="text" id="username-login">
+            </div>
+            <div class="form-item">
+                <label for="password-login">Password</label><br>
+                <input type="password" id="password-login">
+            </div><br>
+            <button id="login-btn">login</button>
+        </section>
+        
+    </section>
+
+    <!-- SIGN UP -->
+    <div class="page">Sign up</div>
+
+    <section class="form">
+        <div>Go to Login</div><br>
+        <p>To sign up for an account, please enter a username and password below</p>
+        <section class="form-container">
+            <div class="form-item">
+                <label for="username-signup">Username</label><br>
+                <input type="text" id="username-signup">
+            </div>
+            <div class="form-item">
+                <label for="password-signup">Password</label><br>
+                <input type="password" id="password-signup">
+            </div><br>
+            <button id="signup-btn">Sign up</button>   
+            
+        </section>
+        
+    </section>
+
+</main>
+
+</html>

@@ -11,7 +11,7 @@ header {
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    border-bottom: solid;
+    border-bottom: solid  rgb(80, 79, 79);
 }
 
 header nav ul{
@@ -25,10 +25,115 @@ header nav ul a {
     display: flex;
     padding: 20px;
     margin: 10px;
-    font-size: bold;
+    font-weight: bold;
 }
 
 h1 {
     padding: 5px 5px 5px 15px;
     font-size: 50px;
+}
+
+.page {
+    background-color: rgb(80, 79, 79);
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.post-items {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    border: solid  rgb(80, 79, 79);
+    align-items: center;
+}
+
+.card {
+    border: solid rgb(80, 79, 79) 2px;
+    width: 75%;
+    margin-bottom: 10px;
+ 
+}
+
+.post-title {
+    padding: 5px;
+    background-color: rgb(80, 79, 79);
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-tag {
+    font-size: small;
+    display: flex;
+    justify-content: end;
+}
+
+.post-text {
+    padding: 5px;
+    background-color: rgb(155, 151, 151);
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.comment-box {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: solid rgb(80, 79, 79) 2px;
+    width: 75%;
+    background-color: rgb(155, 151, 151);
+    display: flex;
+    flex-direction: column;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    border: solid rgb(80, 79, 79) 2px;
+    padding: 25px;
+    margin-bottom: 10px;
+}
+.form-container {
+    padding: 25px;
+    flex-wrap: wrap;
+}
+
+.form-item{
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+input{
+    width: 100%;
+    margin-top: 5px;
+    font-size: 15px;
+    padding: 5px;
+    background-color: rgb(235, 233, 233);
+}
+
+textarea {
+    margin: 5px;
+    font-size: 15px;
+    width: 100%;
+    padding: 5px;
+}
+
+button {
+    padding: 5px;
+    background-color: lightgrey;
+    width: 100%;
+}
+
+.post-btns-cont {
+    display: flex;
+    height: 50px;
+    flex-direction: column;
+    width: 75%;
+}
+
+#delete-post {
+    background-color: rgb(250, 52, 52);
 }
