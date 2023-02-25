@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const sequelize = require('../config/connection');
-const { Model } = require('sequelize');
 
 //will contain all of the user facing routes (homepage, login)
 //get and render all posts
@@ -16,40 +15,39 @@ router.get('/', async (req, res) => {
         });
 
         //serialize the data
-        const posts = await postData.map((post) => post.get({ plain: true }));
+        const posts = postData.map((post) => post.get({ plain: true }));
 
-        res.render('main', {
-            // posts,
-            // loggedIn: req.session.loggedIn,
+        res.render('homepage', {
+            posts
         });
 
-        res.status(200).json(posts)
+        // res.status(200).json(posts)
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
 //get post by id
-router.get('/post/:id', async (req, res) => {
-    try {
+// router.get('/post/:id', async (req, res) => {
+//     try {
 
-        const postData = await Post.findByPk(req.params.id);
+//         const postData = await Post.findByPk(req.params.id);
 
-        if (!postData) {
-            res.status(404).json({ message: 'No post found with that id' });
-            return;
-        };
+//         if (!postData) {
+//             res.status(404).json({ message: 'No post found with that id' });
+//             return;
+//         };
 
-        // res.render('homepage', {
-        //     posts,
-        //     loggedIn: req.session.loggedIn,
-        // }); 
+//         // res.render('homepage', {
+//         //     posts,
+//         //     loggedIn: req.session.loggedIn,
+//         // }); 
 
-        res.status(200).json(postData)
-    } catch (err) {
-        res.status(500).json(err);
-    }
-})
+//         res.status(200).json(postData)
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// })
 
 //signup page render
 router.get('/signup', (req, res) => {

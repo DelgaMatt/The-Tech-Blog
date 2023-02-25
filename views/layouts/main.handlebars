@@ -1,12 +1,13 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <link rel="stylesheet" href="../../public/styles/styles.css">
-    <title>Document</title>
+    {{!-- <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script> --}}
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>The Tech Blog</title>
 </head>
 
 <body>
@@ -25,12 +26,12 @@
         </nav>
     </header>
 
-</body>
-<main>
-    <!-- {{{body}}} -->
 
+    <main>
+        {{{body}}}
+    </main>
     <!-- HOMEPAGE -->
-    <div class="page">Homepage</div>
+    {{!-- <div class="page">Homepage</div>
     <section class="post-items">
         <section class="card">
             <div class="post-title">
@@ -40,28 +41,26 @@
             <div class="post-text">
                 just another day in the life writing code! I love what i do!
             </div>
-
-
-        </section>
+        </section> --}}
 
         <!-- Add Comment Box -->
-        <div class="comment-box">
+        <!-- <div class="comment-box">
             <div>Leave a comment.. </div>
             <textarea type="text" id="comment-text"></textarea>
             <button id="comment-submit-btn">Submit</button>
-        </div>
+        </div> -->
 
         <!-- Posted Comments -->
-        <div class="comment-box">
+        <!-- <div class="comment-box">
             <div>
                 <p>This is from a previous comment</p>
             </div>
             <div class="post-tag">Created by Matthew Delgado</div>
-        </div>
-    </section>
+        </div> -->
+    {{!-- </section> --}}
 
     <!-- DASHBOARD -->
-    <div class="page">Dashboard</div>
+    <!-- <div class="page">Dashboard</div>
     <section class="post-items">
         <section class="card">
             <div class="post-title">
@@ -71,18 +70,16 @@
             <div class="post-text">
                 just another day in the life writing code! I love what i do!
             </div>
-
-
         </section>
         <section class="post-btns-cont">
             <button class="post-btn" id="edit-post">Edit Post</button>
             <button class="post-btn" id="delete-post">Delete Post</button>
         </section>
-    </section>
+    </section> -->
 
 
     <!-- EDIT POST -->
-    <div class="page">Post Editor</div>
+    <!-- <div class="page">Post Editor</div>
     <section class="post-items">
         <section class="card">
             <div class="post-title">
@@ -96,10 +93,10 @@
             <button class="post-btn" id="save-post">Save Post</button>
             <button class="post-btn" id="delete-post">Delete Post</button>
         </section>
-    </section>
+    </section> -->
 
     <!-- LOGIN -->
-    <div class="page">Log In</div>
+    <!-- <div class="page">Log In</div>
     <section class="form">
         <div> Go to Sign up</div>
         <section class="form-container">
@@ -113,12 +110,10 @@
             </div><br>
             <button id="login-btn">login</button>
         </section>
-        
-    </section>
+    </section> -->
 
     <!-- SIGN UP -->
-    <div class="page">Sign up</div>
-
+    <!-- <div class="page">Sign up</div>
     <section class="form">
         <div>Go to Login</div><br>
         <p>To sign up for an account, please enter a username and password below</p>
@@ -132,11 +127,9 @@
                 <input type="password" id="password-signup">
             </div><br>
             <button id="signup-btn">Sign up</button>   
-            
         </section>
-        
-    </section>
+    </section> -->
 
-</main>
 
+</body>
 </html>
